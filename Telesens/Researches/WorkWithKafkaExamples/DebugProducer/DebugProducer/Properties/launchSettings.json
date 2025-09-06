@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DebugProducer": {
+      "commandName": "Project",
+      "commandLineArgs": "localhost:9093 MainBus"
+    }
+  }
+}

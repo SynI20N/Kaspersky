@@ -1,0 +1,50 @@
+﻿@model Cashpoint.Models.Cashpoint
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Банкомат</title>
+    <meta charset="utf-8" />
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/site.css" />
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <h2 for="Count">Количество кассет</h2>
+        <div class="row" onchange="updateTapes();">
+            <input type="range" id="Count" name="Count" min="1" max="8" value="@Model.TapeCount">
+        </div>
+        <h2>Настройка номиналов</h2>
+        <div id="nominals" class="row">
+            <div style="display:inline-block">
+                @Html.Partial("Tape", Model.TapeNominals.FirstOrDefault())
+            </div>
+        </div>
+        <h2>Настройка кассет</h2>
+        <div id="nominalsCount" class="row">
+            <div style="display:inline-block">
+                @Html.Partial("TapeCount", Model.NominalsCount.FirstOrDefault())
+            </div>
+        </div>
+        <h2>Статусы кассет</h2>
+        <div id="statuses" class="row">
+            <div style="display:inline-block">
+                @Html.Partial("TapeStatus", Model.TapeStatuses.FirstOrDefault())
+            </div>
+        </div>
+
+        <div style="margin-top:100px">
+            <div class="row column-flex">
+                <input type="number" id="Cash" name="Cash" value="0">
+                <button class="give-button" type="button" id="Tick" onclick="checkGive(this);">
+                    Выдать деньги
+                </button>
+            </div>
+        </div>
+</body>
+
+</html>
+<script src="/js/site.js"></script>

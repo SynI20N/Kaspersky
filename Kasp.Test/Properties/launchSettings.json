@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Kasp.Test": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Projects\\Kasp.Test\"",
+      "environmentVariables": {
+        "GEN_MODE": "0"
+      }
+    }
+  }
+}

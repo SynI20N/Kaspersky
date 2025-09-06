@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DebugConsumer": {
+      "commandName": "Project",
+      "commandLineArgs": "subscribe localhost:9093 MainBus"
+    }
+  }
+}

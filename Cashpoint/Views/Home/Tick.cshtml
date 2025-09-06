@@ -1,0 +1,11 @@
+﻿@model List<List<int>>
+
+<div>
+    @{
+        foreach (var i in Model)
+        {
+            @Html.Label(i.ElementAt(0).ToString() + " по " + i.ElementAt(1).ToString());
+            <br>
+        }
+    }
+</div>

@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="Confluent.Kafka" Version="2.5.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
+			<IncludeAssets>
+				runtime; build; native; contentfiles; analyzers; buildtransitive
+			</IncludeAssets>
+			<PrivateAssets>
+				none
+			</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+		<PackageReference Include="Telegram.Bot" Version="19.0.0" />
+	</ItemGroup>
+
+	<Choose>
+		<When Condition="Exists('Lib/TimeScaleDB.dll')">
+			<ItemGroup>
+				<Reference Include="TimeScaleDB">
+					<HintPath>
+						Lib/TimeScaleDB.dll
+					</HintPath>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition="Exists('../Database')">
+			<ItemGroup>
+				<ProjectReference Include="../Database/TimeScaleDB.csproj" />
+			</ItemGroup>
+		</When>
+	</Choose>
+
+	<Choose>
+		<When Condition="Exists('Lib/HostedServices.dll')">
+			<ItemGroup>
+				<Reference Include="HostedServices">
+					<HintPath>
+						Lib/HostedServices.dll
+					</HintPath>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition="Exists('../Workers')">
+			<ItemGroup>
+				<ProjectReference Include="../Workers/HostedServices.csproj" />
+			</ItemGroup>
+		</When>
+	</Choose>
+
+	<Choose>
+		<When Condition="Exists('Lib/TrackSense.API.MetricGateway.dll')">
+			<ItemGroup>
+				<Reference Include="TrackSense.API.MetricGateway">
+					<HintPath>
+						Lib/TrackSense.API.MetricGateway.dll
+					</HintPath>
+				</Reference>
+			</ItemGroup>
+		</When>
+	</Choose>
+</Project>

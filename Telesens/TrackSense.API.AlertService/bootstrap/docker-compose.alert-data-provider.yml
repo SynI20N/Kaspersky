@@ -1,0 +1,11 @@
+services:
+  alert-data-provider:
+    build:
+      context: ../src
+      dockerfile: ./API/Dockerfile
+    image: alertdataprovider
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "25565:8080"
+      - "25566:8081"

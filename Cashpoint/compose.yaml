@@ -1,0 +1,17 @@
+services:
+  artillery:
+    image: artillery-image
+    build:
+      context: .
+      dockerfile: Dockerfile_test
+    volumes:
+      - ".:/app"
+    stdin_open: true
+    tty: true
+
+  cashpoint:
+    build: .
+    image: cashpoint
+    ports:
+      - "5282:8080"
+  

@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  metricgateway.api:
+    environment:
+      BROKER: "kafka:9092"
+    image: metricgateway.api
+    container_name: metricgateway.api
+    build:
+      context: src/Gateway
+      dockerfile: Dockerfile
+    ports:
+      - 5002:8080
+    networks:
+      - general_environment
+      - metricgateway_service_network
+
+networks:
+    general_environment:
+      external: true
+    metricgateway_service_network:
+      name: 'metricgateway_service_network'
