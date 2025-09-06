@@ -11,10 +11,10 @@
     <li>API для CRUD-операций по всем сущностям БД</li>
     <li>Автоматическое получение метрик с Kafka и их анализ</li>
     <li>Создание оповещений исходя из полученных метрик</li>
-    <img src="https://github.com/Telesens-Technology/TrackSense.API.AlertService/blob/feature/telegram/src/API/Images/AlertEvents.png">
+    <img src="./src/API/Images/AlertEvents.png">
     <li>Подгрузка тг каналов из бд</li>
     <li>Рассылка оповещений по указанному интервалу (appsettings.json)</li>
-    <img src="https://github.com/Telesens-Technology/TrackSense.API.AlertService/blob/feature/telegram/src/API/Images/telegram1.png">
+    <img src="./src/API/Images/telegram1.png">
 </ul>
 <h2>Замечания</h2>
 <p>В Ubuntu начиная с версии 18.04 стандартный днс файл содержит неправильный dns конфиг</p>
