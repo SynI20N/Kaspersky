@@ -7,19 +7,19 @@
 <p>Как различные выборы влияют на алгоритм:</p>
 <table>
   <tr>
-    <td><img src="./Cashpoint/img/1.png" height="400" width="400"></td>
-    <td><img src="./Cashpoint/img/2.png" height="400" width="400"></td>
+    <td><img src="./img/1.png" height="400" width="400"></td>
+    <td><img src="./img/2.png" height="400" width="400"></td>
   </tr>
   <tr>
-    <td><img src="./Cashpoint/img/3.png" height="400" width="400"></td>
-    <td><img src="./Cashpoint/img/4.png" height="400" width="400"></td>
+    <td><img src="./img/3.png" height="400" width="400"></td>
+    <td><img src="./img/4.png" height="400" width="400"></td>
   </tr>
 </table>
 
 <p>Трудный случай с простыми числами:</p>
 <table>
   <tr>
-    <td><img src="./Cashpoint/img/5.png" height="400" width="400"></td>
+    <td><img src="./img/5.png" height="400" width="400"></td>
   </tr>
 </table>
 <!-- <h2>DDOS attack protection</h2>
