@@ -47,6 +47,7 @@ x64/
 *.sbr
 *.tlb
 *.tli
+*.docx
 *.tlh
 *.tmp
 *.tmp_proj

@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-using TrackSense.API.AlertService.Services;
-
 namespace TrackSense.API.AlertService.Controllers;
 
 [ApiController]
@@ -9,7 +6,7 @@ public class NotifyController : ControllerBase
 {
     private readonly ILogger<NotifyController> _logger;
     private readonly INotificationService _notifications;
- 
+
     public NotifyController(ILogger<NotifyController> logger, INotificationService notifications)
     {
         _logger = logger;
