@@ -1,0 +1,7 @@
+services:
+  alert-services:
+    build: ../src/Workers
+    image: alertservices
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - BROKER=kafka:9092

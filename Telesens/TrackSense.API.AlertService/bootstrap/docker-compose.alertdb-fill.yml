@@ -1,0 +1,9 @@
+services:
+  alertdb-fill:
+    build:
+      context: ../src
+      dockerfile: ./Database/Dockerfile
+    user: root
+    image: filldb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production

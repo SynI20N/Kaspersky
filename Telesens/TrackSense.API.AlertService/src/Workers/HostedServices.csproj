@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<UserSecretsId>dotnet-NotificationWorker-2b7320b0-f1e9-42f6-8a4f-96a1c7b2ac1f</UserSecretsId>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+	</PropertyGroup>
+
+	
+	<ItemGroup>
+		<Content Remove="appsettings.json;appsettings.Development.json"/>
+		<PackageReference Include="Confluent.Kafka" Version="2.5.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+	<Choose>
+		<When Condition="Exists('Lib/TrackSense.API.MetricGateway.dll')">
+			<ItemGroup>
+				<Reference Include="TrackSense.API.MetricGateway">
+					<HintPath>
+						Lib/TrackSense.API.MetricGateway.dll
+					</HintPath>
+				</Reference>
+			</ItemGroup>
+		</When>
+		<When Condition="Exists('../../../TrackSense.API.MetricGateway')">
+			<ItemGroup>
+				<ProjectReference Include="../../../TrackSense.API.MetricGateway/src/Gateway/MetricGateway.csproj" />
+			</ItemGroup>
+		</When>
+	</Choose>
+</Project>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A5DC36E4-81AA-4330-B605-12DEFF93D4C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipperCLI.Exe", "src\ZipperCLI.Exe\ZipperCLI.Exe.csproj", "{17F1066A-FAEE-4AC3-81F5-987595C208D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipperCLI.Tests", "src\ZipperCLI.Tests\ZipperCLI.Tests.csproj", "{C3C1FC31-2598-4E96-886F-0C5487E00F75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17F1066A-FAEE-4AC3-81F5-987595C208D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17F1066A-FAEE-4AC3-81F5-987595C208D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17F1066A-FAEE-4AC3-81F5-987595C208D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17F1066A-FAEE-4AC3-81F5-987595C208D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3C1FC31-2598-4E96-886F-0C5487E00F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C1FC31-2598-4E96-886F-0C5487E00F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C1FC31-2598-4E96-886F-0C5487E00F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C1FC31-2598-4E96-886F-0C5487E00F75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{17F1066A-FAEE-4AC3-81F5-987595C208D0} = {A5DC36E4-81AA-4330-B605-12DEFF93D4C3}
+		{C3C1FC31-2598-4E96-886F-0C5487E00F75} = {A5DC36E4-81AA-4330-B605-12DEFF93D4C3}
+	EndGlobalSection
+EndGlobal

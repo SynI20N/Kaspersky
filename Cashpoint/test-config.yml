@@ -1,0 +1,10 @@
+config:
+  target: 'http://host.docker.internal:5282' # локальный адрес
+  phases:
+    - duration: 60  # 1 минута
+      arrivalRate: 2500  # 1000 обращений в секунду
+
+scenarios:
+  - flow:
+      - get:
+          url: "/"

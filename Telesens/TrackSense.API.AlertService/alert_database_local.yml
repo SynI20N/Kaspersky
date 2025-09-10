@@ -1,0 +1,24 @@
+services:
+  alert-database:
+    image: timescale/timescaledb-ha:pg16
+    user: root
+    command: postgres -c shared_preload_libraries=timescaledb
+    container_name: alert-database-local
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - tracksense_data_alert_service_local:/var/lib/postgresql/data
+    networks:
+      - alerts
+
+volumes:
+  tracksense_data_alert_service_local:
+
+networks:
+  alerts:
+    name: alerts_network

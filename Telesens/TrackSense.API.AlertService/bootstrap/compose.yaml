@@ -1,0 +1,41 @@
+services:
+  alertdb:
+    extends:
+      service: alertdb
+      file: docker-compose.alertdb.yml
+    networks:
+      - alert_service_network
+  alertdb-fill:
+    extends:
+      service: alertdb-fill
+      file: docker-compose.alertdb-fill.yml
+    networks:
+      - alert_service_network
+    depends_on:
+      - alertdb
+      - alert-services
+  alert-data-provider:
+    extends:
+      service: alert-data-provider
+      file: docker-compose.alert-data-provider.yml
+    networks:
+      - general_environment
+      - alert_service_network
+    depends_on:
+      - alertdb-fill
+  alert-services:
+    extends:
+      service: alert-services
+      file: docker-compose.alert-services.yml
+    networks:
+      - general_environment
+      - alert_service_network
+
+volumes:
+  tracksense_data_alert_service:
+
+networks:
+  general_environment:
+    external: true
+  alert_service_network:
+    name: alert_service_network

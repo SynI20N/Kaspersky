@@ -1,0 +1,8 @@
+# Скачать образ
+FROM artilleryio/artillery
+
+# Копируем конфиг для ddos-атаки
+COPY test-config.yml .
+
+# Запуск и вывод результатов теста
+CMD ["run", "--output", "/app/result.json", "test-config.yml"]

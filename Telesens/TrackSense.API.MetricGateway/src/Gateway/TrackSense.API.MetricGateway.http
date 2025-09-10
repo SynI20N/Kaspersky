@@ -1,0 +1,6 @@
+@TrackSense.API.MetricGateway_HostAddress = http://localhost:5203
+
+GET {{TrackSense.API.MetricGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

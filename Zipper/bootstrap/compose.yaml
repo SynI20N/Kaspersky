@@ -1,0 +1,27 @@
+services:
+ zipper_api:
+  build: ../src/ZipperAPI
+  image: zipper
+  environment:
+    - ASPNETCORE_ENVIRONMENT=Production
+    - ARCHIVER_PATH=/usr/bin/7z
+  volumes:
+    - ../src/ZipperAPI/Data/Files:/app/Data/Files
+    - ../src/ZipperAPI/Data/Archives:/app/Data/Archives
+  ports:
+    - "8080:8080"
+    - "8081:8081"
+ zipper_api_tests:
+  build: 
+    dockerfile: ../src/ZipperAPI.Tests/Dockerfile
+    context: ../src
+  image: zipper_tests
+  environment:
+    - ASPNETCORE_ENVIRONMENT=Production
+    - ARCHIVER_PATH=/usr/bin/7z
+    - TEST_PROJECT_FOLDER=/app
+  volumes:
+    - ./TestResults:/app/test-results
+    - ../src/ZipperAPI/Data/Files:/app/Data/Files
+    - ../src/ZipperAPI/Data/Archives:/app/Data/Archives
+     

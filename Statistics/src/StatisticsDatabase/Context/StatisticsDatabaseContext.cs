@@ -1,0 +1,25 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
+namespace StatisticsDatabase.Context;
+
+public partial class StatisticsDatabaseContext : DbContext
+{
+    private readonly IConfiguration _configuration;
+
+    public StatisticsDatabaseContext(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (optionsBuilder.IsConfigured)
+        {
+            return;
+        }
+        optionsBuilder.UseSqlServer(
+            _configuration.GetConnectionString("Default"),
+            b => b.MigrationsAssembly("StatisticsAPI"));
+    }
+}
