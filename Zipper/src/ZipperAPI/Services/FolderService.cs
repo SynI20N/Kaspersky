@@ -15,21 +15,15 @@ public class FolderService : IFolderService
 
     public string GetRelativeFilesPath()
     {
-        var path = _configuration["FolderPath"];
-        if (path == null)
-        {
-            throw new Exception("FolderPath is not configured");
-        }
+        var path = _configuration["FolderPath"]
+            ?? throw new Exception("FolderPath is not configured");
         return path;
     }
 
     public string GetRelativeArchivePath()
     {
-        var path = _configuration["ArchivePath"];
-        if (path == null)
-        {
-            throw new Exception("ArchivePath is not configured");
-        }
+        var path = _configuration["ArchivePath"]
+            ?? throw new Exception("ArchivePath is not configured");
         return path;
     }
 
@@ -42,7 +36,7 @@ public class FolderService : IFolderService
     public string GetArchiverPath()
     {
         var archiverPath = Environment.GetEnvironmentVariable("ARCHIVER_PATH")
-                           ?? throw new InvalidOperationException("ArchiverPath not configured.");
+            ?? throw new InvalidOperationException("ArchiverPath not configured");
         return archiverPath;
     }
 

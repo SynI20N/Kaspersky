@@ -5,8 +5,8 @@ var configuration = builder.Configuration;
 
 builder.Services.AddSingleton<IConfiguration>(configuration);
 builder.Services.AddSingleton<IFolderService, FolderService>();
-builder.Services.AddScoped<IProcessHandler, ProcessService>();
-builder.Services.AddScoped<ICacher, CacherService>();
+builder.Services.AddSingleton<IProcessHandler, ProcessService>();
+builder.Services.AddSingleton<ICacher, CacherService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -51,3 +51,8 @@ static void CleanWorkingDir(string outputPath)
         }
     }
 }
+
+
+// Test over 20 gb zip archive - doesnt download file. Why?
+// When process doesnt finish, but we finish the app. We cant restart - fix it.
+// Fix tests

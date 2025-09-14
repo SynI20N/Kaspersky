@@ -223,8 +223,8 @@ project.lock.json
 AppPackages/
 
 # Long Files
-Zipper/src/ZipperAPI/Data/Files/
-Zipper/src/ZipperAPI.Tests/Data/Files/
+Zipper/src/ZipperAPI/Data/
+Zipper/src/ZipperAPI.Tests/Data/
 
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)

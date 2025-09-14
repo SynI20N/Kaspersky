@@ -42,14 +42,13 @@ public class ProcessController : ControllerBase
         try
         {
             int processId = _processHandler.StartArchiveProcess(files);
+            return Ok(processId.ToString());
         }
         catch (InvalidOperationException e)
         {
-            _logger.LogError("Server paths are not configures: ", e.Message);
-            return StatusCodes.Status503ServiceUnavailable;
+            _logger.LogError("Server paths are not configured: {Error}", e.Message);
+            return StatusCode(StatusCodes.Status503ServiceUnavailable, "Server is misconfigured");
         }
-
-        return Accepted(processId.ToString());
     }
 
 
