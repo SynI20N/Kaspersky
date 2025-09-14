@@ -1,4 +1,6 @@
-﻿namespace ZipperAPI.Services;
+﻿using System.Diagnostics;
+
+namespace ZipperAPI.Services;
 
 public class FolderService : IFolderService
 {
@@ -48,6 +50,13 @@ public class FolderService : IFolderService
     {
         var archivePath = GetRelativeArchivePath();
         var outputPath = Path.Combine(_env.ContentRootPath, archivePath, $"archive_{processId}.zip");
+        return outputPath;
+    }
+
+    public string GetArchivesPath()
+    {
+        var archivePath = GetRelativeArchivePath();
+        var outputPath = Path.Combine(_env.ContentRootPath, archivePath);
         return outputPath;
     }
 }

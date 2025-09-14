@@ -39,7 +39,16 @@ public class ProcessController : ControllerBase
             return BadRequest($"Some files do not exist: {string.Join(", ", missingFiles)}");
         }
 
-        int processId = _processHandler.StartArchiveProcess(files);
+        try
+        {
+            int processId = _processHandler.StartArchiveProcess(files);
+        }
+        catch (InvalidOperationException e)
+        {
+            _logger.LogError("Server paths are not configures: ", e.Message);
+            return StatusCodes.Status503ServiceUnavailable;
+        }
+
         return Accepted(processId.ToString());
     }
 
@@ -54,7 +63,7 @@ public class ProcessController : ControllerBase
         catch (KeyNotFoundException ex)
         {
             _logger.LogError($"User tried to check inexistent process: {ex.Message}");
+            return NotFound();
         }
-        return NotFound();
     }
 }

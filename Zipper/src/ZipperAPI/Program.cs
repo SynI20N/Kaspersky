@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var folderService = builder.Services.BuildServiceProvider().GetService<IFolderService>();
-var outputPath = folderService.GetWorkingDir();
+var outputPath = folderService.GetArchivesPath();
 
 CleanWorkingDir(outputPath);
 

@@ -6,5 +6,6 @@ public interface IFolderService
     public string GetRelativeArchivePath();
     public string GetWorkingDir();
     public string GetArchiverPath();
+    public string GetArchivesPath();
     public string GetOutputPath(int processId);
 }
