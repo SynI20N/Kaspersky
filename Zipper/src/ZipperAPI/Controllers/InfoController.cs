@@ -4,7 +4,7 @@ using ZipperAPI.Services;
 namespace ZipperAPI.Controllers;
 
 [ApiController]
-[Route("zipper")]
+[Route("api.zipper/v1")]
 public class InfoController : ControllerBase
 {
     private readonly IFolderService _folderService;

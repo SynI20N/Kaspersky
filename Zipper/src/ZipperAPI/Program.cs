@@ -4,13 +4,18 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services.AddSingleton<IConfiguration>(configuration);
-builder.Services.AddSingleton<IProcessHandler, ProcessService>();
 builder.Services.AddSingleton<IFolderService, FolderService>();
-builder.Services.AddSingleton<ICacher, CacherService>();
+builder.Services.AddScoped<IProcessHandler, ProcessService>();
+builder.Services.AddScoped<ICacher, CacherService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var folderService = builder.Services.BuildServiceProvider().GetService<IFolderService>();
+var outputPath = folderService.GetWorkingDir();
+
+CleanWorkingDir(outputPath);
 
 var app = builder.Build();
 
@@ -25,26 +30,24 @@ app.UseRouting();
 app.MapControllers();
 app.UseDeveloperExceptionPage();
 
-var archivePath = configuration["ArchivePath"]
-                  ?? throw new ArgumentException("Archive path not set");
-var outputPath = Path.Combine(builder.Environment.ContentRootPath, archivePath);
-
-if (!Directory.Exists(outputPath))
-{
-    Directory.CreateDirectory(outputPath);
-}
-else
-{
-    foreach (var file in Directory.GetFiles(outputPath))
-    {
-        File.Delete(file);
-    }
-
-    foreach (var dir in Directory.GetDirectories(outputPath))
-    {
-        Directory.Delete(dir, recursive: true);
-    }
-}
-
-
 app.Run();
+
+static void CleanWorkingDir(string outputPath)
+{
+    if (!Directory.Exists(outputPath))
+    {
+        Directory.CreateDirectory(outputPath);
+    }
+    else
+    {
+        foreach (var file in Directory.GetFiles(outputPath))
+        {
+            File.Delete(file);
+        }
+
+        foreach (var dir in Directory.GetDirectories(outputPath))
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+}

@@ -4,7 +4,7 @@ using ZipperAPI.Services;
 namespace ZipperAPI.Controllers;
 
 [ApiController]
-[Route("zipper")]
+[Route("api.zipper/v1")]
 public class ProcessController : ControllerBase
 {
     private readonly IProcessHandler _processHandler;
@@ -40,7 +40,7 @@ public class ProcessController : ControllerBase
         }
 
         int processId = _processHandler.StartArchiveProcess(files);
-        return Ok(processId.ToString());
+        return Accepted(processId.ToString());
     }
 
 

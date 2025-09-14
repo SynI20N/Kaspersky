@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using ZipperAPI.Models;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ZipperAPI.Services;
 
@@ -10,19 +9,16 @@ public class ProcessService : IProcessHandler
     private int _counter = 0;
 
     private readonly ILogger<ProcessService> _logger;
-    private readonly IConfiguration _configuration;
-    private readonly IWebHostEnvironment _env;
+    private readonly IFolderService _folderService;
     private readonly ICacher _cacher;
 
     public ProcessService(
         ILogger<ProcessService> logger,
-        IConfiguration configuration,
-        IWebHostEnvironment env,
+        IFolderService folderService,
         ICacher cacher)
     {
         _logger = logger;
-        _configuration = configuration;
-        _env = env;
+        _folderService = folderService;
         _cacher = cacher;
     }
 
@@ -42,7 +38,7 @@ public class ProcessService : IProcessHandler
         {
             throw new KeyNotFoundException($"Process with Id {processId} was not found");
         }
-        if(processInfo.Status != StatusType.Completed)
+        if (processInfo.Status != StatusType.Completed)
         {
             throw new KeyNotFoundException($"Process with Id {processId} has not finished");
         }
@@ -71,23 +67,13 @@ public class ProcessService : IProcessHandler
             return info.Id;
         }
 
-        var archivePath = _configuration["ArchivePath"]
-                          ?? throw new ArgumentException("Archive path not set");
-
-        var folderPath = _configuration["FolderPath"]
-                         ?? throw new ArgumentException("Folder path not set");
-
-        var archiverPath = Environment.GetEnvironmentVariable("ARCHIVER_PATH")
-                           ?? throw new InvalidOperationException("ArchiverPath not configured.");
-
         int id = _counter++;
-        var workingDir = Path.Combine(_env.ContentRootPath, folderPath);
-        var outputPath = Path.Combine(_env.ContentRootPath, archivePath, $"archive_{id}.zip");
+        var archiverPath = _folderService.GetArchiverPath();
+        var outputPath = _folderService.GetOutputPath(id);
+        var workingDir = _folderService.GetWorkingDir();
 
         var args = BuildArchiverArguments(outputPath, files);
-
         var process = CreateProcess(archiverPath, args, workingDir);
-
         if (!process.Start())
             throw new InvalidOperationException("Failed to start archiver process.");
 
