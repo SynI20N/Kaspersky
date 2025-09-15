@@ -8,20 +8,26 @@ namespace ZipperAPI.Controllers;
 public class InfoController : ControllerBase
 {
     private readonly IFolderService _folderService;
+    private readonly ILogger<InfoController> _logger;
 
-    public InfoController(IFolderService service)
+    public InfoController(IFolderService service, ILogger<InfoController> logger)
     {
         _folderService = service;
+        _logger = logger;
     }
 
     [HttpGet("files")]
     public ActionResult<List<string>> GetListOfFiles()
     {
-        var absolutePath = _folderService.GetWorkingDir();
-        var files = Directory.GetFiles(absolutePath)
-                             .Select(Path.GetFileName) 
-                             .ToList();
-
-        return Ok(files);
+        try
+        {
+            var files = _folderService.GetFiles();
+            return Ok(files);
+        }
+        catch (InvalidOperationException ex)
+        {
+            _logger.LogError($"Could not get list of files: {ex.Message}");
+            return StatusCode(StatusCodes.Status503ServiceUnavailable, "Server is misconfigured");
+        }
     }
 }

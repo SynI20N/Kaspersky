@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace ZipperAPI.Services;
+﻿namespace ZipperAPI.Services;
 
 public class FolderService : IFolderService
 {
@@ -52,5 +50,21 @@ public class FolderService : IFolderService
         var archivePath = GetRelativeArchivePath();
         var outputPath = Path.Combine(_env.ContentRootPath, archivePath);
         return outputPath;
+    }
+
+    public string[] GetFiles()
+    {
+        var absolutePath = GetWorkingDir();
+        try
+        {
+            string[] files = Directory.GetFiles(absolutePath)
+                .Select(Path.GetFileName)
+                .ToArray();
+            return files;
+        }
+        catch (DirectoryNotFoundException)
+        {
+            throw new InvalidOperationException($"{absolutePath} does not exist");
+        }
     }
 }

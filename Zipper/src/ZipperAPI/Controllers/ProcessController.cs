@@ -53,7 +53,7 @@ public class ProcessController : ControllerBase
 
 
     [HttpGet("archive/status/{id}")]
-    public ActionResult<string> GetArchiveStatus(int id)
+    public ActionResult<string> GetArchiveStatus([FromRoute] int id)
     {
         try
         {

@@ -17,7 +17,7 @@ public class DownloadController : ControllerBase
     }
 
     [HttpGet("archive/download/{id}")]
-    public IActionResult Download(int id)
+    public IActionResult Download([FromRoute] int id)
     {
         try
         {

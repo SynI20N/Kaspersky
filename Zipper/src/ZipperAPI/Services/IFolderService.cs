@@ -8,4 +8,5 @@ public interface IFolderService
     public string GetArchiverPath();
     public string GetArchivesPath();
     public string GetOutputPath(int processId);
+    public string[] GetFiles();
 }

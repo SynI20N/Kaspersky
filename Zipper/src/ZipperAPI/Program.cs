@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Hosting;
 using ZipperAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,12 +13,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var folderService = builder.Services.BuildServiceProvider().GetService<IFolderService>();
-var outputPath = folderService.GetArchivesPath();
-
-CleanWorkingDir(outputPath);
-
 var app = builder.Build();
+
+var folderService = app.Services.GetService<IFolderService>();
+if(folderService == null)
+{
+    throw new Exception("Folder service could not be resolved");
+}
+var outputPath = folderService.GetArchivesPath();
+CleanWorkingDir(outputPath);
 
 if (app.Environment.IsDevelopment())
 {
