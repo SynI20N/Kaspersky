@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using ZipperAPI.Controllers;
 
@@ -65,7 +59,7 @@ public class ProcessControllerTests : IClassFixture<ProcessControllerTestSetup>
         //Arrange
         string[] files = { "big1.dll", "big2.dll" };
         string[] files_wrong = { "haha", "big2.dll" };
-        string[] files_ok = { "haha", "big2.dll" };
+        string[] files_ok = { "big1.dll", "big2.dll" };
 
         //Act
         ActionResult<string> r = _controller.ArchiveFiles(files);

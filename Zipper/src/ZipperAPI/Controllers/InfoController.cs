@@ -17,7 +17,7 @@ public class InfoController : ControllerBase
     }
 
     [HttpGet("files")]
-    public ActionResult<List<string>> GetListOfFiles()
+    public ActionResult<string[]> GetListOfFiles()
     {
         try
         {

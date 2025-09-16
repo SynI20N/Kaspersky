@@ -29,10 +29,14 @@ public class InfoControllerTestSetup
         mockEnvironment
             .Setup(m => m.ContentRootPath)
             .Returns(contentRoot);
-
-        serviceCollection.AddSingleton<IConfiguration>(configuration);
         serviceCollection.AddSingleton(mockEnvironment.Object);
-        serviceCollection.AddTransient<IFolderService, FolderService>();
+        serviceCollection.AddSingleton<IConfiguration>(configuration);
+
+        var factory = serviceProvider.GetService<ILoggerFactory>();
+        var logger = factory.CreateLogger<InfoController>();
+
+        serviceCollection.AddSingleton<IFolderService, FolderService>();
+
         serviceCollection.AddTransient<InfoController, InfoController>();
 
         ServiceProvider = serviceCollection.BuildServiceProvider();

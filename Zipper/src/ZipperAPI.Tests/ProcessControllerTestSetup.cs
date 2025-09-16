@@ -40,6 +40,7 @@ public class ProcessControllerTestSetup
         serviceCollection.AddSingleton<IProcessHandler, ProcessService>();
         serviceCollection.AddSingleton<IFolderService, FolderService>();
         serviceCollection.AddSingleton<ICacher, CacherService>();
+
         serviceCollection.AddTransient<ProcessController, ProcessController>();
 
 

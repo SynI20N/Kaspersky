@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using ZipperAPI.Controllers;
 
@@ -27,7 +21,7 @@ public class DownloadControllerTests : IClassFixture<DownloadControllerTestSetup
     public void DownloadZipAssertOkay()
     {
         //Arrange
-        string[] files = { "empty1.txt", "big2.dll" };
+        string[] files = { "big1.dll", "big2.dll" };
 
         //Act
         ActionResult<string> result = _processor.ArchiveFiles(files);

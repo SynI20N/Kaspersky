@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ZipperAPI.Controllers;
 
@@ -23,11 +22,11 @@ public class InfoControllerTests : IClassFixture<InfoControllerTestSetup>
         var expected = new List<string> { "big1.dll", "big2.dll", "empty1.txt", "empty2.txt", "long.txt" };
 
         //Act
-        ActionResult<List<string>> result = _controller.GetListOfFiles();
+        ActionResult<string[]> result = _controller.GetListOfFiles();
 
         //Assert
         var okResult = Assert.IsType<OkObjectResult>(result.Result);
-        var files = Assert.IsAssignableFrom<List<string>>(okResult.Value);
+        var files = Assert.IsAssignableFrom <string[]>(okResult.Value);
 
         Assert.Equal(expected, files);
     }
