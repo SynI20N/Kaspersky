@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using ZipperAPI.Controllers;
+using ZipperAPI.Services;
 
 namespace ZipperAPI.Tests;
 
-public class ProcessControllerTests : IClassFixture<ProcessControllerTestSetup>
+[Collection("ControllerTests")]
+public class ProcessControllerTests : IClassFixture<ControllerTestSetup>
 {
     private ServiceProvider _serviceProvider;
     private ProcessController _controller;
 
-    public ProcessControllerTests(ProcessControllerTestSetup testSetup)
+    public ProcessControllerTests(ControllerTestSetup testSetup)
     {
         _serviceProvider = testSetup.ServiceProvider;
         _controller = _serviceProvider.GetService<ProcessController>();

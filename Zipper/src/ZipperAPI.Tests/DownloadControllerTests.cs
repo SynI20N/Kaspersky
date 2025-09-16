@@ -1,16 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using ZipperAPI.Controllers;
+using ZipperAPI.Services;
 
 namespace ZipperAPI.Tests;
 
-public class DownloadControllerTests : IClassFixture<DownloadControllerTestSetup>
+[Collection("ControllerTests")]
+public class DownloadControllerTests : IClassFixture<ControllerTestSetup>
 {
     private ServiceProvider _serviceProvider;
     private ProcessController _processor;
     private DownloadController _downloader;
 
-    public DownloadControllerTests(DownloadControllerTestSetup testSetup)
+    public DownloadControllerTests(ControllerTestSetup testSetup)
     {
         _serviceProvider = testSetup.ServiceProvider;
         _processor = _serviceProvider.GetService<ProcessController>();
@@ -21,7 +23,7 @@ public class DownloadControllerTests : IClassFixture<DownloadControllerTestSetup
     public void DownloadZipAssertOkay()
     {
         //Arrange
-        string[] files = { "big1.dll", "big2.dll" };
+        string[] files = { "long.txt", "big2.dll" };
 
         //Act
         ActionResult<string> result = _processor.ArchiveFiles(files);
@@ -43,7 +45,9 @@ public class DownloadControllerTests : IClassFixture<DownloadControllerTestSetup
         var res = _downloader.Download(response);
 
         //Assert
-        var okRes = Assert.IsType<OkObjectResult>(result.Result);
+        var okDownload = Assert.IsType<FileStreamResult>(res);
+        var resp = Assert.IsAssignableFrom<FileStreamResult>(res);
+        resp.FileStream.Close();
     }
 
     [Fact]
