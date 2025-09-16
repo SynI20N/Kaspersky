@@ -21,7 +21,7 @@ public class InfoControllerTests : IClassFixture<ControllerTestSetup>
     public void GetFileNamesShouldResultAll()
     {
         //Arrange
-        var expected = new List<string> { "big1.dll", "big2.dll", "empty1.txt", "empty2.txt", "long.txt" };
+        var expected = new List<string> { "200mb.csv", "big1.dll", "big2.dll", "empty1.txt", "empty2.txt" };
 
         //Act
         ActionResult<string[]> result = _controller.GetListOfFiles();

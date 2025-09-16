@@ -79,7 +79,7 @@ public class ProcessControllerTests : IClassFixture<ControllerTestSetup>
     public void LongJobResponsiveness()
     {
         //Arrange
-        string[] files = { "big1.dll", "big2.dll", "long.txt" };
+        string[] files = { "big1.dll", "big2.dll", "200mb.csv" };
 
         //Act
         ActionResult<string> result = _controller.ArchiveFiles(files);

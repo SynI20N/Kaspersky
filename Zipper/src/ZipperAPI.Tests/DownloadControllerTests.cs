@@ -23,7 +23,7 @@ public class DownloadControllerTests : IClassFixture<ControllerTestSetup>
     public void DownloadZipAssertOkay()
     {
         //Arrange
-        string[] files = { "long.txt", "big2.dll" };
+        string[] files = { "big1.dll", "big2.dll" };
 
         //Act
         ActionResult<string> result = _processor.ArchiveFiles(files);
