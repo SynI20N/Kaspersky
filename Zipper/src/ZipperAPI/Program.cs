@@ -6,8 +6,8 @@ var configuration = builder.Configuration;
 
 builder.Services.AddSingleton<IConfiguration>(configuration);
 builder.Services.AddSingleton<IFolderService, FolderService>();
-builder.Services.AddScoped<IProcessHandler, ProcessService>();
-builder.Services.AddScoped<ICacher, CacherService>();
+builder.Services.AddSingleton<IProcessHandler, ProcessService>();
+builder.Services.AddSingleton<ICacher, CacherService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

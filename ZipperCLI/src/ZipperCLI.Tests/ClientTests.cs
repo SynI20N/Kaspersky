@@ -1,22 +1,46 @@
 ﻿using CliFx.Infrastructure;
+using Microsoft.Extensions.Configuration;
 using ZipperCLI.Exe.Commands;
 
 public class CommandTests
 {
+    private readonly IConfiguration _config;
+    private readonly Uri _addr;
+    private readonly string _apiVersion;
+
+    public CommandTests()
+    {
+        string basePathFromEnv = Environment.GetEnvironmentVariable("CONFIG_BASE_PATH")
+            ?? throw new Exception("Переменная окружения CONFIG_BASE_PATH не установлена");
+
+        _config = new ConfigurationBuilder()
+            .SetBasePath(basePathFromEnv)
+            .AddJsonFile(
+                 path: "appsettings.json",
+                 optional: false,
+                 reloadOnChange: true)
+           .Build();
+
+        var server = _config["Server"];
+        var port = _config["Port"];
+        _apiVersion = _config["ApiVersion"];
+        var baseUri = $"{server}:{port}";
+        _addr = new Uri(baseUri);
+    }
+
     [Fact]
-    public async Task ListFilesCommand_Should_Print_NoFiles_When_Empty()
+    public async Task ListFilesCommand_Should_Print_Files()
     {
         // Arrange
         var console = new FakeInMemoryConsole();
-        var addr = new Uri("http://localhost:8080/");
-        var cmd = new ListFilesCommand(addr);
+        var cmd = new ListFilesCommand(_addr, _apiVersion, _config);
 
         // Act
         await cmd.ExecuteAsync(console);
 
         // Assert
         var output = console.ReadOutputString();
-        Assert.Contains("big1.dll big2.dll empty1.txt empty2.txt long.txt\r\n", output);
+        Assert.Contains("200mb.csv big1.dll big2.dll empty1.txt empty2.txt Game.unity\r\n", output);
     }
 
     [Fact]
@@ -24,9 +48,8 @@ public class CommandTests
     {
         // Arrange
         var console = new FakeInMemoryConsole();
-        var addr = new Uri("http://localhost:8080/");
 
-        var cmd = new CreateArchiveCommand(addr)
+        var cmd = new CreateArchiveCommand(_addr, _apiVersion, _config)
         {
             Files = new[] { "file1.txt", "file2.txt" }
         };
@@ -48,10 +71,9 @@ public class CommandTests
     {
         // Arrange
         var console = new FakeInMemoryConsole();
-        var addr = new Uri("http://localhost:8080/");
         var dest = Path.GetTempPath();
 
-        var cmd = new RunCommand(addr)
+        var cmd = new RunCommand(_addr, _apiVersion, _config)
         {
             Destination = dest,
             Files = new[] { "big1.dll", "big2.dll" }

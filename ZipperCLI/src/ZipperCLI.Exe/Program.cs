@@ -1,4 +1,5 @@
 ﻿using CliFx;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ZipperCLI.Exe.Commands;
 
@@ -8,7 +9,7 @@ public class Program
 {
     public static async Task<int> Main(string[] args)
     {
-        CliApplication app = StartApplication();
+        CliApplication app = BuildApplication();
 
         if (args.Length > 0)
         {
@@ -41,13 +42,37 @@ public class Program
         return 0;
     }
 
-    private static CliApplication StartApplication()
+    private static CliApplication BuildApplication()
     {
         // Setup DI container
         var services = new ServiceCollection();
 
-        // Register Uri and HttpClient
-        services.AddSingleton(new Uri("http://localhost:8080"));
+        // Получаем значение из переменной окружения
+        string basePathFromEnv = Environment.GetEnvironmentVariable("CONFIG_BASE_PATH")
+            ?? throw new Exception("Переменная окружения CONFIG_BASE_PATH не установлена");
+
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(basePathFromEnv)
+            .AddJsonFile(
+                 path: "appsettings.json",
+                 optional: false,
+                 reloadOnChange: true)
+           .Build();
+
+        // Получаем настройки сервера из конфигурации
+        var server = configuration["Server"];
+        var port = configuration["Port"];
+        var apiVersion = configuration["ApiVersion"]
+            ?? "api.zipper/v1";
+
+        // Формируем полный URI
+        var baseUri = $"{server}:{port}";
+        var uri = new Uri(baseUri);
+
+        // Регистрируем URI в DI контейнере
+        services.AddSingleton(uri);
+        services.AddSingleton(apiVersion);
+        services.AddSingleton<IConfiguration>(configuration);
 
         // Register commands
         services.AddTransient<CreateArchiveCommand>();
