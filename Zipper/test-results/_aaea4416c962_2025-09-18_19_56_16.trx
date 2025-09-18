@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="b7cb1db8-fa1e-4ed1-be9d-1485106ad8a2" name="@aaea4416c962 2025-09-18 19:56:16" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-09-18T19:56:16.7341433+00:00" queuing="2025-09-18T19:56:16.7341434+00:00" start="2025-09-18T19:56:14.7829309+00:00" finish="2025-09-18T19:56:40.0345609+00:00" />
+  <TestSettings name="default" id="e00c778c-b416-4a85-bcd0-8565b3f84126">
+    <Deployment runDeploymentRoot="_aaea4416c962_2025-09-18_19_56_16" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="ee874404-624d-43ec-a44e-aabef966fb56" testId="ecf215da-cb33-820a-8efc-45bbe75baab1" testName="ZipperAPI.Tests.ProcessControllerTests.DownloadFailedZipAssertNotFound" computerName="aaea4416c962" duration="00:00:00.0038859" startTime="2025-09-18T19:56:16.2461075+00:00" endTime="2025-09-18T19:56:16.2461076+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ee874404-624d-43ec-a44e-aabef966fb56" />
+    <UnitTestResult executionId="f9bd4159-3bf8-47bc-a44f-a280f2542127" testId="bd60c160-4d40-3e7c-0545-4bbf282c9003" testName="ZipperAPI.Tests.ProcessControllerTests.LongJobResponsiveness" computerName="aaea4416c962" duration="00:00:23.7415063" startTime="2025-09-18T19:56:39.9878032+00:00" endTime="2025-09-18T19:56:39.9878034+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f9bd4159-3bf8-47bc-a44f-a280f2542127" />
+    <UnitTestResult executionId="a287af1d-ae88-4294-b9ba-9de6afe84e68" testId="a032fa6e-9e49-d41c-5d18-8e4d33039863" testName="ZipperAPI.Tests.DownloadControllerTests.DownloadZipAssertOkay" computerName="aaea4416c962" duration="00:00:00.4202654" startTime="2025-09-18T19:56:15.8165553+00:00" endTime="2025-09-18T19:56:15.8165555+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a287af1d-ae88-4294-b9ba-9de6afe84e68" />
+    <UnitTestResult executionId="961bc2df-ebf2-4d62-b3b8-4e5552619ccb" testId="66434433-2443-43c1-f36f-e0038a5a1cd8" testName="ZipperAPI.Tests.InfoControllerTests.GetFileNamesShouldResultAll" computerName="aaea4416c962" duration="00:00:00.0100755" startTime="2025-09-18T19:56:15.8289425+00:00" endTime="2025-09-18T19:56:15.8289427+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="961bc2df-ebf2-4d62-b3b8-4e5552619ccb" />
+    <UnitTestResult executionId="d91f77e7-4b58-4567-9050-b7ada2865cb9" testId="36fe01fb-76c5-9704-b728-4185bc100a4b" testName="ZipperAPI.Tests.DownloadControllerTests.DownloadInexistentAssertNotFound" computerName="aaea4416c962" duration="00:00:00.0067279" startTime="2025-09-18T19:56:15.3965834+00:00" endTime="2025-09-18T19:56:15.3966158+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d91f77e7-4b58-4567-9050-b7ada2865cb9" />
+    <UnitTestResult executionId="819dce75-82f2-4aac-937e-75cc081f971c" testId="1b4db1ac-c959-5931-9b60-38121dc83160" testName="ZipperAPI.Tests.ProcessControllerTests.GetProcessStatusAssertFailed" computerName="aaea4416c962" duration="00:00:00.0008039" startTime="2025-09-18T19:56:39.9888344+00:00" endTime="2025-09-18T19:56:39.9888346+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="819dce75-82f2-4aac-937e-75cc081f971c" />
+    <UnitTestResult executionId="44059299-ad68-492c-983c-553481081cc1" testId="5c5f4518-c995-49a2-e6a3-d404a27caefd" testName="ZipperAPI.Tests.ProcessControllerTests.GetProcessStatusShouldReturnNotFail" computerName="aaea4416c962" duration="00:00:00.4118940" startTime="2025-09-18T19:56:16.2419763+00:00" endTime="2025-09-18T19:56:16.2419764+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="44059299-ad68-492c-983c-553481081cc1" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="ZipperAPI.Tests.DownloadControllerTests.DownloadInexistentAssertNotFound" storage="/app/zipperapi.tests/bin/debug/net8.0/zipperapi.tests.dll" id="36fe01fb-76c5-9704-b728-4185bc100a4b">
+      <Execution id="d91f77e7-4b58-4567-9050-b7ada2865cb9" />
+      <TestMethod codeBase="/app/ZipperAPI.Tests/bin/Debug/net8.0/ZipperAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ZipperAPI.Tests.DownloadControllerTests" name="DownloadInexistentAssertNotFound" />
+    </UnitTest>
+    <UnitTest name="ZipperAPI.Tests.ProcessControllerTests.LongJobResponsiveness" storage="/app/zipperapi.tests/bin/debug/net8.0/zipperapi.tests.dll" id="bd60c160-4d40-3e7c-0545-4bbf282c9003">
+      <Execution id="f9bd4159-3bf8-47bc-a44f-a280f2542127" />
+      <TestMethod codeBase="/app/ZipperAPI.Tests/bin/Debug/net8.0/ZipperAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ZipperAPI.Tests.ProcessControllerTests" name="LongJobResponsiveness" />
+    </UnitTest>
+    <UnitTest name="ZipperAPI.Tests.ProcessControllerTests.DownloadFailedZipAssertNotFound" storage="/app/zipperapi.tests/bin/debug/net8.0/zipperapi.tests.dll" id="ecf215da-cb33-820a-8efc-45bbe75baab1">
+      <Execution id="ee874404-624d-43ec-a44e-aabef966fb56" />
+      <TestMethod codeBase="/app/ZipperAPI.Tests/bin/Debug/net8.0/ZipperAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ZipperAPI.Tests.ProcessControllerTests" name="DownloadFailedZipAssertNotFound" />
+    </UnitTest>
+    <UnitTest name="ZipperAPI.Tests.ProcessControllerTests.GetProcessStatusShouldReturnNotFail" storage="/app/zipperapi.tests/bin/debug/net8.0/zipperapi.tests.dll" id="5c5f4518-c995-49a2-e6a3-d404a27caefd">
+      <Execution id="44059299-ad68-492c-983c-553481081cc1" />
+      <TestMethod codeBase="/app/ZipperAPI.Tests/bin/Debug/net8.0/ZipperAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ZipperAPI.Tests.ProcessControllerTests" name="GetProcessStatusShouldReturnNotFail" />
+    </UnitTest>
+    <UnitTest name="ZipperAPI.Tests.DownloadControllerTests.DownloadZipAssertOkay" storage="/app/zipperapi.tests/bin/debug/net8.0/zipperapi.tests.dll" id="a032fa6e-9e49-d41c-5d18-8e4d33039863">
+      <Execution id="a287af1d-ae88-4294-b9ba-9de6afe84e68" />
+      <TestMethod codeBase="/app/ZipperAPI.Tests/bin/Debug/net8.0/ZipperAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ZipperAPI.Tests.DownloadControllerTests" name="DownloadZipAssertOkay" />
+    </UnitTest>
+    <UnitTest name="ZipperAPI.Tests.InfoControllerTests.GetFileNamesShouldResultAll" storage="/app/zipperapi.tests/bin/debug/net8.0/zipperapi.tests.dll" id="66434433-2443-43c1-f36f-e0038a5a1cd8">
+      <Execution id="961bc2df-ebf2-4d62-b3b8-4e5552619ccb" />
+      <TestMethod codeBase="/app/ZipperAPI.Tests/bin/Debug/net8.0/ZipperAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ZipperAPI.Tests.InfoControllerTests" name="GetFileNamesShouldResultAll" />
+    </UnitTest>
+    <UnitTest name="ZipperAPI.Tests.ProcessControllerTests.GetProcessStatusAssertFailed" storage="/app/zipperapi.tests/bin/debug/net8.0/zipperapi.tests.dll" id="1b4db1ac-c959-5931-9b60-38121dc83160">
+      <Execution id="819dce75-82f2-4aac-937e-75cc081f971c" />
+      <TestMethod codeBase="/app/ZipperAPI.Tests/bin/Debug/net8.0/ZipperAPI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="ZipperAPI.Tests.ProcessControllerTests" name="GetProcessStatusAssertFailed" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="ecf215da-cb33-820a-8efc-45bbe75baab1" executionId="ee874404-624d-43ec-a44e-aabef966fb56" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bd60c160-4d40-3e7c-0545-4bbf282c9003" executionId="f9bd4159-3bf8-47bc-a44f-a280f2542127" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a032fa6e-9e49-d41c-5d18-8e4d33039863" executionId="a287af1d-ae88-4294-b9ba-9de6afe84e68" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66434433-2443-43c1-f36f-e0038a5a1cd8" executionId="961bc2df-ebf2-4d62-b3b8-4e5552619ccb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="36fe01fb-76c5-9704-b728-4185bc100a4b" executionId="d91f77e7-4b58-4567-9050-b7ada2865cb9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1b4db1ac-c959-5931-9b60-38121dc83160" executionId="819dce75-82f2-4aac-937e-75cc081f971c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c5f4518-c995-49a2-e6a3-d404a27caefd" executionId="44059299-ad68-492c-983c-553481081cc1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="7" executed="7" passed="7" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 8.0.20)
+[xUnit.net 00:00:00.05]   Discovering: ZipperAPI.Tests
+[xUnit.net 00:00:00.08]   Discovered:  ZipperAPI.Tests
+[xUnit.net 00:00:00.08]   Starting:    ZipperAPI.Tests
+[xUnit.net 00:00:24.82]   Finished:    ZipperAPI.Tests
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

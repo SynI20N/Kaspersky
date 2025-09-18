@@ -21,7 +21,18 @@ services:
     - ARCHIVER_PATH=/usr/bin/7z
     - TEST_PROJECT_FOLDER=/app
   volumes:
-    - ./TestResults:/app/test-results
+    - ../test-results:/app/test-results
     - ../src/ZipperAPI.Tests/Data/Files:/app/Data/Files
     - ../src/ZipperAPI.Tests/Data/Archives:/app/Data/Archives
+ zipper_api_database:
+  build: ../src/ZipperAPI.Database
+  image: zipper_db
+  secrets:
+    - mongo_root_password
+  ports: 
+    - "8100:8100"
+
+secrets:
+  mongo_root_password:
+    external: true
      
