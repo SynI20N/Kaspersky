@@ -38,6 +38,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Archives\" />
+    <Folder Include="Data\Files\" />
   </ItemGroup>
 
 </Project>

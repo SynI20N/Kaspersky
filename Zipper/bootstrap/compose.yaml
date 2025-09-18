@@ -22,6 +22,6 @@ services:
     - TEST_PROJECT_FOLDER=/app
   volumes:
     - ./TestResults:/app/test-results
-    - ../src/ZipperAPI/Data/Files:/app/Data/Files
-    - ../src/ZipperAPI/Data/Archives:/app/Data/Archives
+    - ../src/ZipperAPI.Tests/Data/Files:/app/Data/Files
+    - ../src/ZipperAPI.Tests/Data/Archives:/app/Data/Archives
      
