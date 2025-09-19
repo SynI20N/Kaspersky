@@ -31,6 +31,8 @@ services:
     - mongo_root_password
   ports: 
     - "8100:8100"
+  volumes:
+    - ../db_container_logs:/tmp
 
 secrets:
   mongo_root_password:
